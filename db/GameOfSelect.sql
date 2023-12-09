@@ -6,10 +6,9 @@ CREATE TABLE Team
 (
 	idTime int primary key auto_increment,
     nome varchar(45),
-    fundacao YEAR,
+    fundacao char(4),
     cidade varchar(45),
-    estado varchar(45),
-    patrocinador varchar(45)
+    estado varchar(45)
 );
 
 CREATE TABLE campeonato
@@ -42,7 +41,7 @@ CREATE TABLE jogo
 
 CREATE TABLE jogador
 (
-	idJogador int primary key,
+	idJogador int primary key auto_increment,
     nome varchar(45),
     salario float,
     fkTime int,
