@@ -54,6 +54,30 @@ function cadastrarTime(req, res){
     }
 }
 
+function cadastrarJogos(req, res){
+    var camp = req.body.camp;
+    var rodada = req.body.rodada;
+    var jogos = req.body.jogos;
+
+    for (let i = 0; i < jogos.length; i++) {
+        cbfModel.cadastrarJogos(i+1,camp, rodada, jogos[i].mandante, jogos[i].visitante)
+            .then(
+                function (resultado) {
+                    // res.status(200).json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao coletar os dados! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 function cadastrarJogador(req, res){
     cbfModel.selecionarTime()
     .then(
@@ -72,9 +96,66 @@ function cadastrarJogador(req, res){
     );
 }
 
+function buscarCampeonatos(req, res){
+    cbfModel.buscarCampeonatos()
+    .then(
+        function (resultado) {
+            res.status(200).json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao coletar os dados! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
+function buscarRodadas(req, res){
+    cbfModel.buscarRodadas(req.params.idCamp)
+    .then(
+        function (resultado) {
+            res.status(200).json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao coletar os dados! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
+function buscarTimes(req, res){
+    cbfModel.buscarTimes()
+    .then(
+        function (resultado) {
+            res.status(200).json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao coletar os dados! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
 
 module.exports = {
     cadastrarCampTime,
     cadastrarTime,
-    cadastrarJogador
+    cadastrarJogos,
+    cadastrarJogador,
+    buscarCampeonatos,
+    buscarRodadas,
+    buscarTimes
 }

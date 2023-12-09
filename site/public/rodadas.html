@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="buscarCampeonatos()">
+    Insira o campeonato
+    <select id="input_camp" onchange="buscarRodadas(this.value)"></select><br>
+
+    Insira a rodada
+    <select id="input_rodadas" onchange="alimentarJogos()"></select><br>
+
+    <div id="jogos">
+
+        <div>
+            <select id="t1"></select> X 
+            <select id="t3"></select><br>
+        </div>
+
+        <div>
+            <select id="t2"></select> X 
+            <select id="t4"></select><br>
+        </div>
+
+        <div>
+            <select id="t5"></select> X 
+            <select id="t7"></select><br>
+        </div>
+
+        <div>
+            <select id="t6"></select> X 
+            <select id="t8"></select><br>
+        </div>
+            
+        <div>
+            <select id="t9"></select> X 
+            <select id="t11"></select><br>
+        </div>
+            
+        <div>
+            <select id="t10"></select> X 
+            <select id="t12"></select><br>
+        </div>
+            
+        <div>
+            <select id="t13"></select> X 
+            <select id="t15"></select><br>
+        </div>
+
+        <div>
+            <select id="t14"></select> X 
+            <select id="t16"></select><br>
+        </div>
+            
+        <div>
+            <select id="t17"></select> X 
+            <select id="t19"></select><br>
+        </div>
+            
+        <div>
+            <select id="t18"></select> X 
+            <select id="t20"></select><br>
+        </div>
+
+        <button onclick="cadastrarJogos(input_rodadas.value)">Cadastrar Rodada</button>
+
+    </div>
+
+</body>
+</html>
+<script src="js/script.js">
+
+</script>
